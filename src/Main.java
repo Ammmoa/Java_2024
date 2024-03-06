@@ -77,8 +77,5 @@ public class Main {
 
         System.out.println("season: " + season);
 
-        System.out.println();
-        System.out.println("Davaleba 1");
-        System.out.println();
     }
 }
