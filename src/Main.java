@@ -3,135 +3,110 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Davaleba 2");
-        System.out.println();
-
-        //1
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("task 1: ");
-        double min;
-        System.out.print("Enter first number: ");
-        double n1 = scanner.nextDouble();
-        System.out.print("Enter second number: ");
-        double n2 = scanner.nextDouble();
-        System.out.print("Enter third number: ");
-        double n3 = scanner.nextDouble();
-
-        if (n1 <= n2 && n1 <= n3) {
-            min = n1;
-        }
-        else if (n2 <= n1 && n2 <= n3) {
-            min = n2;
-        }
-        else {
-            min = n3;
-        }
-
-        System.out.println("min = " + min);
-
-        //6
-        System.out.print("task 6:\n" + "enter a 3-digit number: ");
-        int num = scanner.nextInt();
-        int a1 = num / 100;
-        int a2 = num / 10 % 10;
-        int a3 = num % 10;
-        if (a1 == a2 || a2 == a3 || a1 == a3)
-            System.out.println("the number have at least two identical digits");
-        else
-            System.out.println("the number doesn't have two identical digits");
-
-        //8
-        System.out.print("task 8:\n" + "enter the month number: ");
-        int month = scanner.nextInt();
-
-        String season;
-        switch (month) {
-            case 12:
-            case 1:
-            case 2:
-                season = "winter";
-                break;
-            case 3:
-            case 4:
-            case 5:
-                season = "spring";
-                break;
-            case 6:
-            case 7:
-            case 8:
-                season = "summer";
-                break;
-            case 9:
-            case 10:
-            case 11:
-                season = "fall";
-                break;
-            default:
-                season = "invalid month";
-        }
-
-        System.out.println("season: " + season);
-
-        System.out.println();
-        System.out.println("Davaleba 1");
-        System.out.println();
-        davaleba1();
+        exc_1();
+        exc_3();
+        exc_5();
+        exc_6();
+        exc_8();
+        exc_11();
+        exc_13();
     }
 
-    static void davaleba1(){
-        //1
-        double a = 2;
-        double b = 3;
-        double c = 4;
-        double s = (a + b + c) / 2;
-        double S;
-        S = Math.sqrt(s * (s - a) * (s - b) * (s - c));
-        System.out.println("task 1: " + S);
+    static void exc_1(){
+        int sum = 0;
+        int product = 1;
+        double average;
 
-        //2
-        a = 2.5;
-        System.out.println("task 2:\n" + "P = " + 4*a + "\nS = " + a*a);
+        for (int i = 1; i <= 15; i++) {
+            sum += i;
+            product *= i;
+        }
+        average = (float) sum / 15;
+        System.out.println("-----exc: 1");
+        System.out.println("sum: " + sum);
+        System.out.println("product: " + product);
+        System.out.println("avg: " + average);
+    }
+    static void exc_3(){
+        float sum = 0;
 
-        //3
-        double A = 2.8;
-        double x = 1.5;
-        double B = 1;
-        double y = Math.sqrt(Math.log10(A + B) + x) / Math.exp(x) + 1;
-        System.out.println("task 3: " + Math.abs(x*x - y*y));
-
-        //4
-        A = 10;
-        x = 1.5;
-        y = Math.sqrt((Math.exp(x) + 1)/(Math.exp(x) + 2) + Math.sin(x));
-        System.out.println("task 4: " + A*y*Math.sin(y));
-
-        //5
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("task 5:\n" + "enter a 3-digit number: ");
-        int num = scanner.nextInt();
-        if (num < 100 || num > 999){
-            while(num < 100 || num > 999){
-                System.out.print("enter a 3-digit number: " );
-                num = scanner.nextInt();
+        for (int i = 1; i <= 100; i++) {
+            sum += (float) 1 / i;
+        }
+        System.out.println("-----exc: 3");
+        System.out.println("sum: " + sum);
+    }
+    static void exc_5(){
+        System.out.println("-----exc: 5");
+        for (int i = 100; i <= 999; i++) {
+            int hundreds = i / 100;
+            int tens = (i / 10) % 10;
+            int unit = i % 10;
+            if (i % (hundreds + tens + unit) == 0){
+                System.out.println("number:" + i);
             }
-            System.out.println("result = " + (num%10 + num%100/10 + num/100));
         }
-        else{
-            System.out.println("result = " + (num%10 + num%100/10 + num/100));
+    }
+    static void exc_6(){
+        System.out.println("-----exc: 6");
+        String out_str = "";
+        for (int i = 10; i >= 0; i--) {
+            int j = i;
+            while (j > 0){
+                out_str += "*";
+                j--;
+            }
+            System.out.println(out_str);
+            out_str = "";
         }
+    }
+    static void exc_8(){
+        System.out.println("-----exc: 8");
+        Scanner scanner = new Scanner(System.in);
 
-        //6
-        System.out.print("task 6:\n" + "enter a number: ");
-        num = scanner.nextInt();
-        System.out.println("result = " + num%10);
+        System.out.print("Enter how many fibonacci num you want: ");
+        int number = scanner.nextInt();
+        int i = 1;
+        int j = 1;
+        System.out.println(i);
+        System.out.println(j);
+        for (int u = 3; u <= number; u++){
+            int c = i + j;
+            i = j;
+            j = c;
+            System.out.println(c);
+        }
+    }
+    static void exc_11(){
+        System.out.println("-----exc: 11");
+        Scanner scanner = new Scanner(System.in);
 
-        //7
-        System.out.print("task 7:\n" + "enter a 3-digit number: ");
-        String value = scanner.next();
-        String reversedValue = new StringBuilder(value).reverse().toString();
-        System.out.println(reversedValue);
+        System.out.print("Enter max num: ");
+        int number = scanner.nextInt();
 
-        scanner.close();
+        int product = 1;
+        for (int u = 1; u <= number; u++){
+            product *= u;
+        }
+        double g_avg = Math.pow(product, 1.0 / number);
+        System.out.println("g_avg:" + g_avg);
+
+    }
+    static void exc_13(){
+        System.out.println("-----exc: 13");
+        double h = 1.5;
+
+        System.out.println("x\t|\ty");
+        System.out.println("------------");
+
+        for (double x = 1; x <= 10; x += h) {
+            double y = Math.pow(x, 2) + 2 * x + 1;
+            System.out.printf("%.1f\t|\t%.1f%n", x, y);
+
+            if (y > 50) {
+                System.out.println("more than 50");
+                break;
+            }
+        }
     }
 }
-
