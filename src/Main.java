@@ -3,10 +3,12 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Davaleba 2");
-        System.out.println();
+        exc_1();
+        exc_6();
+        exc_8();
+    }
 
-        //1
+    static void exc_1(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("task 1: ");
         double min;
@@ -26,11 +28,12 @@ public class Main {
         else {
             min = n3;
         }
-
         System.out.println("min = " + min);
 
-        //6
+    }
+    static void exc_6(){
         System.out.print("task 6:\n" + "enter a 3-digit number: ");
+        Scanner scanner = new Scanner(System.in);
         int num = scanner.nextInt();
         int a1 = num / 100;
         int a2 = num / 10 % 10;
@@ -40,8 +43,10 @@ public class Main {
         else
             System.out.println("the number doesn't have two identical digits");
 
-        //8
+    }
+    static void exc_8(){
         System.out.print("task 8:\n" + "enter the month number: ");
+        Scanner scanner = new Scanner(System.in);
         int month = scanner.nextInt();
 
         String season;
@@ -75,63 +80,5 @@ public class Main {
         System.out.println();
         System.out.println("Davaleba 1");
         System.out.println();
-        davaleba1();
-    }
-
-    static void davaleba1(){
-        //1
-        double a = 2;
-        double b = 3;
-        double c = 4;
-        double s = (a + b + c) / 2;
-        double S;
-        S = Math.sqrt(s * (s - a) * (s - b) * (s - c));
-        System.out.println("task 1: " + S);
-
-        //2
-        a = 2.5;
-        System.out.println("task 2:\n" + "P = " + 4*a + "\nS = " + a*a);
-
-        //3
-        double A = 2.8;
-        double x = 1.5;
-        double B = 1;
-        double y = Math.sqrt(Math.log10(A + B) + x) / Math.exp(x) + 1;
-        System.out.println("task 3: " + Math.abs(x*x - y*y));
-
-        //4
-        A = 10;
-        x = 1.5;
-        y = Math.sqrt((Math.exp(x) + 1)/(Math.exp(x) + 2) + Math.sin(x));
-        System.out.println("task 4: " + A*y*Math.sin(y));
-
-        //5
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("task 5:\n" + "enter a 3-digit number: ");
-        int num = scanner.nextInt();
-        if (num < 100 || num > 999){
-            while(num < 100 || num > 999){
-                System.out.print("enter a 3-digit number: " );
-                num = scanner.nextInt();
-            }
-            System.out.println("result = " + (num%10 + num%100/10 + num/100));
-        }
-        else{
-            System.out.println("result = " + (num%10 + num%100/10 + num/100));
-        }
-
-        //6
-        System.out.print("task 6:\n" + "enter a number: ");
-        num = scanner.nextInt();
-        System.out.println("result = " + num%10);
-
-        //7
-        System.out.print("task 7:\n" + "enter a 3-digit number: ");
-        String value = scanner.next();
-        String reversedValue = new StringBuilder(value).reverse().toString();
-        System.out.println(reversedValue);
-
-        scanner.close();
     }
 }
-
