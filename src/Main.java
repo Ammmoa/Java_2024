@@ -31,6 +31,17 @@ public class Main {
         bread.left_quantity();
         System.out.println(bread.profit());
 
+
+        BankAccount account = new BankAccount("AB13", 1000, 12);
+        System.out.println("account Number: " + account.accountNumber);
+        System.out.println("credit Limit: " + account.creditLimit);
+        System.out.println("credit Month: " + account.creditMonth);
+        System.out.println("balance: " + account.balance);
+        account.deposit(500);
+        account.withdraw(1200);
+        System.out.println("balance after operations: " + account.balance);
+        System.out.println("annual Interest: " + account.annualInterest());
+
     }
     static class RightTriangle{
         public double x1,x2,x3,y1,y2,y3;
@@ -151,5 +162,40 @@ public class Main {
             profit_tot = sold_quantity * (price - base_price);
             return profit_tot;
         }
+    }
+    static class BankAccount{
+        public String accountNumber;
+        public double creditLimit, balance;
+        public int creditMonth;
+
+        public BankAccount(String accountNumber, int creditLimit, int creditMonth) {
+            this.accountNumber = accountNumber;
+            this.creditLimit = creditLimit;
+            this.creditMonth = creditMonth;
+            this.balance = 0;
+        }
+
+        public void setCreditLimit(int newLimit) {
+            this.creditLimit = newLimit;
+        }
+
+        public void withdraw(int amount) {
+            if (this.balance - amount < -this.creditLimit) {
+                System.out.println("not enough money ");
+            } else {
+                this.balance -= amount;
+                System.out.println("withdraw of " + amount + " completed ");
+            }
+        }
+
+        public void deposit(int amount) {
+            this.balance += amount;
+            System.out.println("deposit of " + amount + " added ");
+        }
+
+        public double annualInterest() {
+            return this.balance * 0.24;
+        }
+
     }
 }
